@@ -39,10 +39,7 @@
         .insta-info a { color: var(--ouro); font-weight: bold; text-decoration: none; }
 
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); }
-        .modal-content { 
-            background: #fff; color: #333; margin: 5% auto; padding: 30px; width: 85%; max-width: 600px; 
-            border-radius: 15px; position: relative; max-height: 80vh; overflow-y: auto; 
-        }
+        .modal-content { background: #fff; color: #333; margin: 5% auto; padding: 30px; width: 85%; max-width: 500px; border-radius: 15px; position: relative; max-height: 80vh; overflow-y: auto; }
         .close { position: absolute; right: 20px; top: 15px; font-size: 24px; cursor: pointer; color: #999; z-index: 100; }
         
         .reg-text { text-align: justify; font-size: 0.95rem; line-height: 1.6; color: #333; }
@@ -52,8 +49,11 @@
         .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
         .form-group input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 1rem; box-sizing: border-box; }
         
-        .check-pago { display: flex; align-items: center; gap: 10px; background: #f0fdf4; padding: 12px; border-radius: 8px; margin-bottom: 20px; cursor: pointer; border: 1px solid #dcfce7; }
-        .pix-box { background: #f8f9fa; padding: 15px; border-radius: 10px; border: 1px dashed var(--verde-medio); word-break: break-all; font-family: monospace; margin: 10px 0; font-size: 0.8rem; }
+        .opcoes-pagamento { text-align: left; background: #f9f9f9; padding: 15px; border-radius: 10px; margin-bottom: 20px; border: 1px solid #eee; }
+        .opcao-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; cursor: pointer; font-weight: 500; }
+        .opcao-item input { width: 18px; height: 18px; }
+
+        .pix-box { background: #f8f9fa; padding: 15px; border-radius: 10px; border: 1px dashed var(--verde-medio); word-break: break-all; font-family: monospace; margin: 10px 0; font-size: 0.8rem; text-align: center; }
         .btn-whats { background: var(--whats); color: white; padding: 15px; border-radius: 8px; display: block; font-weight: bold; margin-top: 15px; text-decoration: none; text-align: center; }
 
         @media (max-width: 768px) { .container { flex-direction: column; text-align: center; } }
@@ -67,8 +67,7 @@
                 <div class="logo-overlay"></div>
                 <iframe src="https://www.canva.com/design/DAHBUAbuA_U/ZlNMz2yGhtmmH7_TxS2sow/view?embed" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"></iframe>
             </div>
-            <img src="https://pradosom.fbitsstatic.net/img/p/ventilador-de-mesa-vtx50-8p-127v-150w-2026-01-mondial-150871/337876.jpg?w=420&h=420&v=202602071042" class="prize-img" alt="Prêmio Ventilador">
-            <small style="display:block; margin-top:10px; opacity:0.7;">*Imagem meramente ilustrativa</small>
+            <img src="https://pradosom.fbitsstatic.net/img/p/ventilador-de-mesa-vtx50-8p-127v-150w-2026-01-mondial-150871/337876.jpg?w=420&h=420&v=202602071042" class="prize-img">
         </div>
 
         <div class="right-side">
@@ -98,20 +97,27 @@
     <div id="formModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('formModal')">&times;</span>
-            <h2 id="formTitle" style="text-align:center;">Participar</h2>
+            <h2 id="formTitle" style="text-align:center;">Identificação</h2>
             <div class="form-group">
                 <label>Nome Completo:</label>
                 <input type="text" id="nome" placeholder="Seu nome">
             </div>
             <div class="form-group">
                 <label>WhatsApp:</label>
-                <input type="tel" id="telefone" placeholder="(91) 98888-8888">
+                <input type="tel" id="telefone" placeholder="(91) 9XXXX-XXXX">
             </div>
-            <label id="containerCheckPago" class="check-pago" style="display: none;">
-                <input type="checkbox" id="checkPago">
-                <span>Já realizei o pagamento via Pix</span>
-            </label>
-            <button class="btn-principal" id="btnSalvar" style="background: var(--verde-medio); color: white;">AVANÇAR</button>
+
+            <div id="blocoEscolha" class="opcoes-pagamento">
+                <p style="margin-top:0; font-weight:bold; font-size:0.9rem;">Como deseja pagar?</p>
+                <label class="opcao-item">
+                    <input type="radio" name="opcaoPago" value="AGORA" checked> Pagarei agora via Pix
+                </label>
+                <label class="opcao-item">
+                    <input type="radio" name="opcaoPago" value="DEPOIS"> Pagarei mais tarde
+                </label>
+            </div>
+
+            <button class="btn-principal" id="btnSalvar" style="background: var(--verde-medio); color: white;">CONCLUIR</button>
         </div>
     </div>
 
@@ -122,8 +128,7 @@
             <img src="image_4b8421.png" style="width:180px;" alt="QR Code">
             <div class="pix-box" id="pixKey">00020126860014br.gov.bcb.pix0136eea7c3c5-a895-4bc7-85dc-26ff693db7100224Cofrinho de Edivan Silva5204000053039865802BR5912Edivan Silva6010Ananindeua61086712040562270523COFRNTkxNzEyMDAwMDAwMDM63040327</div>
             <button onclick="copyPix()" style="background:#333; color:white; border:none; padding:12px; width:100%; border-radius:8px; margin-top:10px; cursor:pointer; font-weight:bold;">Copiar Código Pix</button>
-            
-            <p style="font-weight: bold; color: var(--verde-escuro); margin-top:20px;">Clique abaixo para validar sua participação:</p>
+            <p style="font-weight: bold; color: var(--verde-escuro); margin-top:20px;">Envie o comprovante para validar:</p>
             <a id="btnWhatsDinamico" href="#" target="_blank" class="btn-whats">ENVIAR COMPROVANTE (WHATSAPP)</a>
         </div>
     </div>
@@ -132,38 +137,28 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal('regModal')">&times;</span>
             <div class="reg-text">
-                <h2 style="text-align: center;">Regulamento do Sorteio</h2>
-                <p style="text-align: center; font-weight: bold;">Prêmio: Ventilador de Mesa | Realização: Banda El-Elyon</p>
-                
-                <h3>1. Do Objeto e Realização</h3>
-                <p>O presente sorteio é realizado exclusivamente pela Banda El-Elyon. A ADCIN e a Congregação Torre Forte não possuem vínculo administrativo ou responsabilidade legal sobre o mesmo.</p>
-
-                <h3>2. Do Propósito</h3>
-                <p>Toda a renda arrecadada será destinada à compra e manutenção de equipamentos: cabos, placas de áudio, pedaleiras, pratos de bateria e manutenção da mesa de som.</p>
-
-                <h3>3. Do Prêmio</h3>
-                <p>O prêmio consiste em 01 (um) Ventilador de Mesa.</p>
-
-                <h3>4. Do Sorteio</h3>
-                <p>O sorteio será em 07/03/2026 via Live no Instagram <strong>@el.yonbanda</strong> com urna física.</p>
-
-                <hr>
-                <p style="text-align: center; font-size: 0.8rem;">Ananindeua, PA, 2026. <br> Responsáveis: Lucas B. Pamplona e Edivan S. Costa.</p>
+                <h2 style="text-align: center;">Regulamento</h2>
+                <p><strong>1. Realização:</strong> Banda El-Elyon. ADCIN e Torre Forte são isentas.</p>
+                <p><strong>2. Propósito:</strong> Compra e manutenção de equipamentos musicais.</p>
+                <p><strong>3. Validação:</strong> A cartela só é válida com o pagamento confirmado e envio do comprovante.</p>
             </div>
         </div>
     </div>
 
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxlvo3XReB27blSvUSgX19_hMjharOblWFdO8PJ7wk3G5efVQSCEy3ttPnISM-N1zJF/exec';
+        let modoAtual = "";
 
         function openForm(modo) {
+            modoAtual = modo;
             document.getElementById('formModal').style.display = 'block';
+            const bloco = document.getElementById('blocoEscolha');
             if (modo === 'confirmar') {
                 document.getElementById('formTitle').innerText = "Confirmar Pagamento";
-                document.getElementById('containerCheckPago').style.display = 'flex';
+                bloco.style.display = 'none';
             } else {
                 document.getElementById('formTitle').innerText = "Participar";
-                document.getElementById('containerCheckPago').style.display = 'none';
+                bloco.style.display = 'block';
             }
         }
 
@@ -173,28 +168,45 @@
         document.getElementById('btnSalvar').addEventListener('click', function() {
             const nome = document.getElementById('nome').value;
             const telefone = document.getElementById('telefone').value;
-            const pago = document.getElementById('checkPago').checked ? "SIM" : "NÃO";
+            
+            // Lógica do status de pagamento
+            let statusPago = "";
+            if (modoAtual === 'confirmar') {
+                statusPago = "SIM (CONFIRMAÇÃO)";
+            } else {
+                const radio = document.querySelector('input[name="opcaoPago"]:checked').value;
+                statusPago = (radio === "AGORA") ? "PAGAR AGORA" : "PAGAR DEPOIS";
+            }
 
-            if (!nome || !telefone) { alert("Preencha os dados!"); return; }
+            if (!nome || !telefone) { alert("Preencha seu nome e WhatsApp!"); return; }
 
             this.innerText = "Salvando...";
             this.disabled = true;
 
-            fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: JSON.stringify({ nome: nome, telefone: telefone, pago: pago }) })
+            fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: JSON.stringify({ nome: nome, telefone: telefone, pago: statusPago }) })
             .then(() => {
-                const texto = encodeURIComponent(`Oi, eu sou ${nome} e comprei uma cartela do sorteio, segue o comprovante.`);
-                document.getElementById('btnWhatsDinamico').href = `https://wa.me/5547984800908?text=${texto}`;
-                
                 closeModal('formModal');
-                document.getElementById('pixModal').style.display = 'block';
-                this.innerText = "AVANÇAR";
+                this.innerText = "CONCLUIR";
                 this.disabled = false;
+
+                if (statusPago === "PAGAR DEPOIS") {
+                    alert("Agradecemos seu interesse, " + nome + "!\n\nSeus dados foram salvos. Ficaremos no aguardo do seu pagamento para validar sua participação no sorteio. Até logo!");
+                } else {
+                    // Fluxo de pagamento agora
+                    const texto = encodeURIComponent(`Oi, eu sou ${nome} e comprei uma cartela do sorteio, segue o comprovante.`);
+                    document.getElementById('btnWhatsDinamico').href = `https://wa.me/5547984800908?text=${texto}`;
+                    document.getElementById('pixModal').style.display = 'block';
+                }
+                
+                // Limpa campos para uma próxima vez
+                document.getElementById('nome').value = "";
+                document.getElementById('telefone').value = "";
             });
         });
 
         function copyPix() {
             const pixText = document.getElementById("pixKey").innerText;
-            navigator.clipboard.writeText(pixText).then(() => alert("Copiado!"));
+            navigator.clipboard.writeText(pixText).then(() => alert("Código Copiado!"));
         }
 
         window.onclick = function(event) { if (event.target.className === 'modal') { event.target.style.display = "none"; } }
