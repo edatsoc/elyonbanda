@@ -20,7 +20,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            /* Fundo Verde com efeito de pinceladas */
             background: 
                 radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.15) 0%, transparent 25%),
                 radial-gradient(circle at 85% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 30%),
@@ -28,23 +27,32 @@
             background-attachment: fixed;
         }
 
-        /* Container Principal - Configurado para Horizontal por padrão */
         .container {
             background: rgba(0, 0, 0, 0.25);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            padding: 40px;
+            padding: 30px;
             border-radius: 25px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-            max-width: 900px; /* Mais largo para o modo horizontal */
-            width: 90%;
+            max-width: 950px;
+            width: 92%;
             border: 1px solid rgba(255, 255, 255, 0.2);
             margin: 20px;
             display: flex;
-            flex-direction: row; /* Horizontal */
+            flex-direction: row;
             align-items: center;
-            gap: 40px;
-            text-align: left;
+            gap: 30px;
+        }
+
+        /* Estilização da Logo vinda do Canva */
+        .logo-wrapper {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 15px auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            position: relative;
         }
 
         .left-side {
@@ -57,51 +65,51 @@
         }
 
         h1 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             margin: 0;
             letter-spacing: 3px;
             text-transform: uppercase;
         }
 
         .sub-header {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 300;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             display: block;
             opacity: 0.9;
         }
 
         .prize-img {
             width: 100%;
-            max-width: 320px;
+            max-width: 300px;
             height: auto;
             border-radius: 15px;
             background: white;
-            padding: 15px;
+            padding: 10px;
             filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
         }
 
         .ilustrativa {
             font-size: 0.7rem;
             opacity: 0.7;
-            margin-top: 10px;
+            margin-top: 8px;
             display: block;
             font-style: italic;
         }
 
         .info-card {
             background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
+            padding: 20px;
             border-radius: 15px;
-            margin: 20px 0;
+            margin: 15px 0;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .price {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             font-weight: 800;
             color: #f1c40f;
-            margin: 10px 0;
+            margin: 5px 0;
         }
 
         .btn-insta {
@@ -123,9 +131,9 @@
 
         .link-regulamento {
             display: block;
-            margin-top: 20px;
+            margin-top: 15px;
             color: rgba(255, 255, 255, 0.9);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             cursor: pointer;
             text-decoration: underline;
             text-align: center;
@@ -134,15 +142,16 @@
         /* AJUSTE PARA CELULAR (VERTICAL) */
         @media (max-width: 768px) {
             .container {
-                flex-direction: column; /* Muda para vertical */
+                flex-direction: column;
                 text-align: center;
-                padding: 30px 20px;
+                padding: 25px;
             }
-            h1 { font-size: 2.2rem; }
-            .prize-img { max-width: 220px; }
+            .logo-wrapper { width: 100px; height: 100px; }
+            h1 { font-size: 2rem; }
+            .prize-img { max-width: 200px; }
         }
 
-        /* Estilos do Modal (Regulamento) */
+        /* Modal Regulamento */
         .modal {
             display: none;
             position: fixed;
@@ -162,7 +171,6 @@
             border-radius: 15px;
             line-height: 1.6;
         }
-        .modal-content h2, .modal-content h3 { color: var(--verde-escuro); }
         .close-modal { float: right; font-size: 28px; font-weight: bold; cursor: pointer; color: #999; }
         .assinaturas { display: flex; justify-content: space-between; margin-top: 30px; font-weight: bold; font-size: 0.9rem; }
         @media (max-width: 480px) { .assinaturas { flex-direction: column; gap: 15px; } }
@@ -172,6 +180,12 @@
 
     <div class="container">
         <div class="left-side">
+            <div class="logo-wrapper">
+                <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
+                    src="https://www.canva.com/design/DAG7lNGh8sU/InGPBNVhJg_90vc0NvS2kg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+                </iframe>
+            </div>
+
             <div class="prize-container">
                 <img src="https://pradosom.fbitsstatic.net/img/p/ventilador-de-mesa-vtx50-8p-127v-150w-2026-01-mondial-150871/337876.jpg?w=420&h=420&v=202602071042" alt="Ventilador Mondial" class="prize-img">
                 <span class="ilustrativa">*Imagem meramente ilustrativa</span>
@@ -201,30 +215,18 @@
     <div id="regModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h2 style="text-align: center;">Regulamento do Sorteio: Ventilador de Mesa</h2>
+            <h2 style="text-align: center; color: var(--verde-escuro);">Regulamento do Sorteio</h2>
             <p><strong>Realização:</strong> Banda El-Elyon (Elyon)</p>
             
-            <h3>1. Do Objeto e Realização</h3>
-            <p>O presente sorteio é realizado exclusivamente pela Banda El-Elyon (ou "Elyon"), grupo musical da Congregação Torre Forte.</p>
-            <p><small><em>Isenção de Responsabilidade: Este sorteio é de inteira responsabilidade da Banda El-Elyon. A ADCIN e a Congregação Torre Forte não possuem vínculo administrativo ou financeiro sobre a organização.</em></small></p>
+            <p><strong>1. Do Objeto e Realização:</strong> Realizado exclusivamente pela Banda El-Elyon, grupo musical da Congregação Torre Forte. A ADCIN e a Congregação Torre Forte não possuem vínculo administrativo ou financeiro sobre a organização.</p>
+            
+            <p><strong>2. Propósito:</strong> Renda destinada exclusivamente à compra e manutenção de equipamentos (cabos, placas de áudio, pedaleiras, pratos de bateria, manutenção de mesa de som, etc).</p>
 
-            <h3>2. Do Propósito e Destinação dos Recursos</h3>
-            <p>A renda será destinada exclusivamente à compra e manutenção de equipamentos:</p>
-            <ul>
-                <li>Cabos e placas de áudio;</li>
-                <li>Pedaleiras e caixas amplificadoras;</li>
-                <li>Pratos e banco para bateria;</li>
-                <li>Manutenção de mesa de som e pedestais.</li>
-            </ul>
+            <p><strong>3. Do Prêmio:</strong> 01 (um) Ventilador de Mesa. <em>A imagem no site é meramente ilustrativa.</em></p>
 
-            <h3>3. Do Prêmio</h3>
-            <p>01 (um) Ventilador de Mesa. <em>A imagem no site é meramente ilustrativa.</em></p>
+            <p><strong>4. Método:</strong> Sorteio via Live no Instagram <strong>@el.yonbanda</strong> com urna física.</p>
 
-            <h3>4. Método de Sorteio</h3>
-            <p>Realizado via Live no Instagram <strong>@el.yonbanda</strong> através de urna física com os canhotos.</p>
-
-            <h3>5. Data e Alterações</h3>
-            <p>Data prevista: 07 de março de 2026. Sujeita a alterações por baixa venda de tickets, comunicadas via Instagram.</p>
+            <p><strong>5. Data:</strong> 07 de março de 2026. Sujeita a alterações por baixa venda de tickets.</p>
 
             <hr>
             <p style="text-align: center; font-size: 0.8rem; color: #666;">Ananindeua, PA, 08 de Fevereiro de 2026</p>
