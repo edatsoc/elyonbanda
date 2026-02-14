@@ -35,23 +35,16 @@
         .btn-principal:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
         .btn-secundario { background: transparent; border: 2px solid var(--ouro); color: var(--ouro); }
 
-        .insta-info { margin-top: 15px; font-size: 0.85rem; line-height: 1.4; opacity: 0.9; text-align: center; }
-        .insta-info a { color: var(--ouro); font-weight: bold; text-decoration: none; }
-
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); }
-        .modal-content { background: #fff; color: #333; margin: 5% auto; padding: 30px; width: 85%; max-width: 500px; border-radius: 15px; position: relative; max-height: 80vh; overflow-y: auto; }
-        .close { position: absolute; right: 20px; top: 15px; font-size: 24px; cursor: pointer; color: #999; z-index: 100; }
+        .modal-content { background: #fff; color: #333; margin: 5% auto; padding: 30px; width: 85%; max-width: 500px; border-radius: 15px; position: relative; max-height: 85vh; overflow-y: auto; }
+        .close { position: absolute; right: 20px; top: 15px; font-size: 24px; cursor: pointer; color: #999; }
         
-        .reg-text { text-align: justify; font-size: 0.95rem; line-height: 1.6; color: #333; }
-        .reg-text h3 { color: var(--verde-escuro); border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 20px; }
-
-        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group { margin-bottom: 15px; text-align: left; }
         .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
-        .form-group input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 1rem; box-sizing: border-box; }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 1rem; box-sizing: border-box; }
         
         .opcoes-pagamento { text-align: left; background: #f9f9f9; padding: 15px; border-radius: 10px; margin-bottom: 20px; border: 1px solid #eee; }
-        .opcao-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; cursor: pointer; font-weight: 500; }
-        .opcao-item input { width: 18px; height: 18px; }
+        .opcao-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; cursor: pointer; }
 
         .pix-box { background: #f8f9fa; padding: 15px; border-radius: 10px; border: 1px dashed var(--verde-medio); word-break: break-all; font-family: monospace; margin: 10px 0; font-size: 0.8rem; text-align: center; }
         .btn-whats { background: var(--whats); color: white; padding: 15px; border-radius: 8px; display: block; font-weight: bold; margin-top: 15px; text-decoration: none; text-align: center; }
@@ -73,21 +66,14 @@
         <div class="right-side">
             <h1 translate="no">SORTEIO</h1>
             <p style="font-size: 1.4rem; margin: 5px 0 0 0; opacity: 0.9;">Banda El-Elyon</p>
-
             <div class="info-card">
-                <div style="font-size: 1.1rem; color: #fff;">Prêmio: <strong style="color: var(--ouro);">01 Ventilador de Mesa</strong></div>
-                <div style="margin: 10px 0; font-size: 1rem;">📅 Sorteio: <strong>07/03/2026</strong></div>
+                <div style="font-size: 1.1rem;">Prêmio: <strong style="color: var(--ouro);">01 Ventilador de Mesa</strong></div>
+                <div style="margin: 10px 0;">📅 Sorteio: 07/03/2026</div>
                 <div class="price">R$ 5,00</div>
             </div>
-
             <button class="btn-principal" onclick="openForm('comprar')">COMPRAR CARTELA</button>
             <button class="btn-principal btn-secundario" onclick="openForm('confirmar')">JÁ COMPREI - CONFIRMAR PAGAMENTO</button>
             
-            <div class="insta-info">
-                Nos siga e acompanhe o sorteio no Instagram: <a href="https://www.instagram.com/el.yonbanda" target="_blank">@el.yonbanda</a>.<br>
-                Caso não possua Instagram, acompanhe o sorteio pelo navegador <a href="https://www.instagram.com/el.yonbanda/live/" target="_blank">clicando aqui</a>.
-            </div>
-
             <div style="text-align: center; margin-top: 20px;">
                 <span style="text-decoration: underline; cursor: pointer; font-size: 0.85rem; opacity: 0.7;" onclick="openReg()">Ler Regulamento Completo</span>
             </div>
@@ -97,7 +83,8 @@
     <div id="formModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('formModal')">&times;</span>
-            <h2 id="formTitle" style="text-align:center;">Identificação</h2>
+            <h2 id="formTitle" style="text-align:center;">Participar</h2>
+            
             <div class="form-group">
                 <label>Nome Completo:</label>
                 <input type="text" id="nome" placeholder="Seu nome">
@@ -106,15 +93,15 @@
                 <label>WhatsApp:</label>
                 <input type="tel" id="telefone" placeholder="(91) 9XXXX-XXXX">
             </div>
+            <div class="form-group">
+                <label>Quantidade de Números:</label>
+                <input type="number" id="quantidade" value="1" min="1" max="100">
+            </div>
 
             <div id="blocoEscolha" class="opcoes-pagamento">
                 <p style="margin-top:0; font-weight:bold; font-size:0.9rem;">Como deseja pagar?</p>
-                <label class="opcao-item">
-                    <input type="radio" name="opcaoPago" value="AGORA" checked> Pagarei agora via Pix
-                </label>
-                <label class="opcao-item">
-                    <input type="radio" name="opcaoPago" value="DEPOIS"> Pagarei mais tarde
-                </label>
+                <label class="opcao-item"><input type="radio" name="opcaoPago" value="AGORA" checked> Pagarei agora via Pix</label>
+                <label class="opcao-item"><input type="radio" name="opcaoPago" value="DEPOIS"> Pagarei mais tarde</label>
             </div>
 
             <button class="btn-principal" id="btnSalvar" style="background: var(--verde-medio); color: white;">CONCLUIR</button>
@@ -124,52 +111,32 @@
     <div id="pixModal" class="modal">
         <div class="modal-content" style="text-align:center;">
             <span class="close" onclick="closeModal('pixModal')">&times;</span>
-            <h2 style="color: var(--verde-escuro); margin-top:0;">Pagamento Pix</h2>
+            <h2>Pagamento Pix</h2>
             <img src="image_4b8421.png" style="width:180px;" alt="QR Code">
             <div class="pix-box" id="pixKey">00020126860014br.gov.bcb.pix0136eea7c3c5-a895-4bc7-85dc-26ff693db7100224Cofrinho de Edivan Silva5204000053039865802BR5912Edivan Silva6010Ananindeua61086712040562270523COFRNTkxNzEyMDAwMDAwMDM63040327</div>
-            <button onclick="copyPix()" style="background:#333; color:white; border:none; padding:12px; width:100%; border-radius:8px; margin-top:10px; cursor:pointer; font-weight:bold;">Copiar Código Pix</button>
-            <p style="font-weight: bold; color: var(--verde-escuro); margin-top:20px;">Envie o comprovante para validar:</p>
+            <button onclick="copyPix()" style="background:#333; color:white; border:none; padding:12px; width:100%; border-radius:8px; cursor:pointer;">Copiar Código Pix</button>
             <a id="btnWhatsDinamico" href="#" target="_blank" class="btn-whats">ENVIAR COMPROVANTE (WHATSAPP)</a>
         </div>
     </div>
 
-    <div id="regModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('regModal')">&times;</span>
-            <div class="reg-text">
-                <h2 style="text-align: center;">Regulamento</h2>
-                <p><strong>1. Realização:</strong> Banda El-Elyon. ADCIN e Torre Forte são isentas.</p>
-                <p><strong>2. Propósito:</strong> Compra e manutenção de equipamentos musicais.</p>
-                <p><strong>3. Validação:</strong> A cartela só é válida com o pagamento confirmado e envio do comprovante.</p>
-            </div>
-        </div>
-    </div>
-
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxlvo3XReB27blSvUSgX19_hMjharOblWFdO8PJ7wk3G5efVQSCEy3ttPnISM-N1zJF/exec';
+        const scriptURL = 'SUA_URL_DO_GOOGLE_SCRIPT_AQUI'; // <--- COLOQUE SUA URL AQUI
         let modoAtual = "";
 
         function openForm(modo) {
             modoAtual = modo;
             document.getElementById('formModal').style.display = 'block';
-            const bloco = document.getElementById('blocoEscolha');
-            if (modo === 'confirmar') {
-                document.getElementById('formTitle').innerText = "Confirmar Pagamento";
-                bloco.style.display = 'none';
-            } else {
-                document.getElementById('formTitle').innerText = "Participar";
-                bloco.style.display = 'block';
-            }
+            document.getElementById('blocoEscolha').style.display = (modo === 'confirmar') ? 'none' : 'block';
+            document.getElementById('formTitle').innerText = (modo === 'confirmar') ? "Confirmar Pagamento" : "Participar";
         }
 
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
-        function openReg() { document.getElementById('regModal').style.display = 'block'; }
 
         document.getElementById('btnSalvar').addEventListener('click', function() {
             const nome = document.getElementById('nome').value;
             const telefone = document.getElementById('telefone').value;
+            const quantidade = document.getElementById('quantidade').value;
             
-            // Lógica do status de pagamento
             let statusPago = "";
             if (modoAtual === 'confirmar') {
                 statusPago = "SIM (CONFIRMAÇÃO)";
@@ -178,29 +145,28 @@
                 statusPago = (radio === "AGORA") ? "PAGAR AGORA" : "PAGAR DEPOIS";
             }
 
-            if (!nome || !telefone) { alert("Preencha seu nome e WhatsApp!"); return; }
+            if (!nome || !telefone || !quantidade) { alert("Preencha todos os campos!"); return; }
 
             this.innerText = "Salvando...";
             this.disabled = true;
 
-            fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: JSON.stringify({ nome: nome, telefone: telefone, pago: statusPago }) })
+            fetch(scriptURL, { 
+                method: 'POST', 
+                mode: 'no-cors', 
+                body: JSON.stringify({ nome: nome, telefone: telefone, pago: statusPago, quantidade: quantidade }) 
+            })
             .then(() => {
                 closeModal('formModal');
                 this.innerText = "CONCLUIR";
                 this.disabled = false;
 
                 if (statusPago === "PAGAR DEPOIS") {
-                    alert("Agradecemos seu interesse, " + nome + "!\n\nSeus dados foram salvos. Ficaremos no aguardo do seu pagamento para validar sua participação no sorteio. Até logo!");
+                    alert("Agradecemos seu interesse, " + nome + "!\n\nSeus dados foram salvos. Ficaremos no aguardo do pagamento das " + quantidade + " cotas para validar sua participação.");
                 } else {
-                    // Fluxo de pagamento agora
-                    const texto = encodeURIComponent(`Oi, eu sou ${nome} e comprei uma cartela do sorteio, segue o comprovante.`);
+                    const texto = encodeURIComponent(`Oi, eu sou ${nome} e comprei ${quantidade} cotas do sorteio. Segue o comprovante.`);
                     document.getElementById('btnWhatsDinamico').href = `https://wa.me/5547984800908?text=${texto}`;
                     document.getElementById('pixModal').style.display = 'block';
                 }
-                
-                // Limpa campos para uma próxima vez
-                document.getElementById('nome').value = "";
-                document.getElementById('telefone').value = "";
             });
         });
 
@@ -208,8 +174,6 @@
             const pixText = document.getElementById("pixKey").innerText;
             navigator.clipboard.writeText(pixText).then(() => alert("Código Copiado!"));
         }
-
-        window.onclick = function(event) { if (event.target.className === 'modal') { event.target.style.display = "none"; } }
     </script>
 </body>
 </html>
