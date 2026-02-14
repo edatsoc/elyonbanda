@@ -7,7 +7,7 @@
     <style>
         :root {
             --verde-claro: #2ecc71; --verde-medio: #27ae60; --verde-escuro: #1b4d3e;
-            --ouro: #f1c40f; --insta: #e1306c;
+            --ouro: #f1c40f; --insta: #e1306c; --whats: #25d366;
         }
         body {
             margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, sans-serif; color: white;
@@ -28,30 +28,31 @@
         h1 { font-size: 2.8rem; margin: 0; text-transform: uppercase; letter-spacing: 3px; }
         .prize-img { width: 100%; max-width: 280px; border-radius: 15px; background: white; padding: 10px; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3)); }
         
-        .info-card { background: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 15px; margin: 20px 0; border: 1px solid rgba(255, 255, 255, 0.1); text-align: center; }
-        .price { font-size: 3rem; font-weight: 800; color: var(--ouro); margin: 10px 0; }
+        .info-card { background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; margin: 15px 0; border: 1px solid rgba(255, 255, 255, 0.1); text-align: center; }
+        .price { font-size: 2.5rem; font-weight: 800; color: var(--ouro); margin: 5px 0; }
         
-        .btn-principal { display: block; background: var(--ouro); color: #333; padding: 18px; border-radius: 50px; font-weight: 900; text-align: center; font-size: 1.2rem; cursor: pointer; width: 100%; border: none; transition: 0.3s; }
+        .btn-principal { display: block; background: var(--ouro); color: #333; padding: 15px; border-radius: 50px; font-weight: 900; text-align: center; font-size: 1.1rem; cursor: pointer; width: 100%; border: none; transition: 0.3s; margin-bottom: 10px; }
         .btn-principal:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .btn-secundario { background: transparent; border: 2px solid var(--ouro); color: var(--ouro); }
 
-        .insta-info { margin-top: 15px; font-size: 0.85rem; line-height: 1.4; opacity: 0.9; text-align: center; }
-        .insta-info a { color: var(--ouro); font-weight: bold; text-decoration: none; }
+        .insta-info { margin-top: 15px; font-size: 0.8rem; line-height: 1.4; opacity: 0.9; text-align: center; }
 
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); }
         .modal-content { 
-            background: #fff; color: #333; margin: 5% auto; padding: 30px; width: 85%; max-width: 600px; 
-            border-radius: 15px; position: relative; max-height: 80vh; overflow-y: auto; 
+            background: #fff; color: #333; margin: 5% auto; padding: 25px; width: 85%; max-width: 500px; 
+            border-radius: 15px; position: relative; max-height: 85vh; overflow-y: auto; text-align: center;
         }
-        .close { position: absolute; right: 20px; top: 15px; font-size: 24px; cursor: pointer; color: #999; z-index: 100; }
+        .close { position: absolute; right: 20px; top: 15px; font-size: 24px; cursor: pointer; color: #999; }
         
-        .reg-text { text-align: justify; font-size: 0.95rem; line-height: 1.6; color: #333; }
-        .reg-text h3 { color: var(--verde-escuro); border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 20px; }
-
-        .form-group { margin-bottom: 20px; text-align: left; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
+        .form-group { margin-bottom: 15px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9rem; }
         .form-group input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 1rem; box-sizing: border-box; }
+        
+        .check-pago { display: flex; align-items: center; gap: 10px; background: #f0fdf4; padding: 10px; border-radius: 8px; margin-bottom: 20px; cursor: pointer; border: 1px solid #dcfce7; }
+        .check-pago input { width: 20px; height: 20px; cursor: pointer; }
 
-        .pix-box { background: #f8f9fa; padding: 15px; border-radius: 10px; border: 1px dashed var(--verde-medio); word-break: break-all; font-family: monospace; }
+        .btn-whats { background: var(--whats); color: white; text-decoration: none; padding: 12px; border-radius: 8px; display: block; font-weight: bold; margin-top: 15px; }
+        .pix-box { background: #f8f9fa; padding: 10px; border-radius: 10px; border: 1px dashed var(--verde-medio); word-break: break-all; font-family: monospace; font-size: 0.8rem; margin: 10px 0; }
 
         @media (max-width: 768px) { .container { flex-direction: column; text-align: center; } }
     </style>
@@ -64,29 +65,29 @@
                 <div class="logo-overlay"></div>
                 <iframe src="https://www.canva.com/design/DAHBUAbuA_U/ZlNMz2yGhtmmH7_TxS2sow/view?embed" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"></iframe>
             </div>
-            <img src="https://pradosom.fbitsstatic.net/img/p/ventilador-de-mesa-vtx50-8p-127v-150w-2026-01-mondial-150871/337876.jpg?w=420&h=420&v=202602071042" class="prize-img" alt="Prêmio Ventilador">
-            <small style="display:block; margin-top:10px; opacity:0.7;">*Imagem meramente ilustrativa</small>
+            <img src="https://pradosom.fbitsstatic.net/img/p/ventilador-de-mesa-vtx50-8p-127v-150w-2026-01-mondial-150871/337876.jpg?w=420&h=420&v=202602071042" class="prize-img">
         </div>
 
         <div class="right-side">
             <h1 translate="no">SORTEIO</h1>
-            <p style="font-size: 1.4rem; margin: 5px 0 0 0; opacity: 0.9;">Banda El-Elyon</p>
+            <p style="margin: 5px 0;">Banda El-Elyon</p>
 
             <div class="info-card">
-                <div style="font-size: 1.1rem; color: #fff;">Prêmio: <strong style="color: var(--ouro);">01 Ventilador de Mesa</strong></div>
-                <div style="margin: 10px 0; font-size: 1rem;">📅 Sorteio: <strong>07/03/2026</strong></div>
+                <div style="font-size: 1rem;">Prêmio: <strong style="color: var(--ouro);">01 Ventilador de Mesa</strong></div>
                 <div class="price">R$ 5,00</div>
+                <small>Sorteio: 07/03/2026</small>
             </div>
 
-            <button class="btn-principal" onclick="openForm()">COMPRAR CARTELA</button>
+            <button class="btn-principal" onclick="openForm('comprar')">COMPRAR CARTELA</button>
+            <button class="btn-principal btn-secundario" onclick="openForm('confirmar')">JÁ COMPREI - CONFIRMAR PAGAMENTO</button>
             
             <div class="insta-info">
-                Nos siga e acompanhe o sorteio no Instagram: <a href="https://www.instagram.com/el.yonbanda" target="_blank">@el.yonbanda</a>.<br>
-                Caso não possua Instagram, acompanhe o sorteio pelo navegador <a href="https://www.instagram.com/el.yonbanda/live/" target="_blank">clicando aqui</a>.
+                Siga <a href="https://www.instagram.com/el.yonbanda" target="_blank" style="color:var(--ouro)">@el.yonbanda</a> para acompanhar!<br>
+                Sem Instagram? <a href="https://www.instagram.com/el.yonbanda/live/" target="_blank" style="color:var(--ouro)">Assista aqui</a>.
             </div>
 
-            <div style="text-align: center; margin-top: 20px;">
-                <span style="text-decoration: underline; cursor: pointer; font-size: 0.85rem; opacity: 0.7;" onclick="openReg()">Ler Regulamento Completo</span>
+            <div style="text-align: center; margin-top: 15px;">
+                <span style="text-decoration: underline; cursor: pointer; font-size: 0.8rem; opacity: 0.7;" onclick="openReg()">Regulamento Integral</span>
             </div>
         </div>
     </div>
@@ -94,66 +95,56 @@
     <div id="formModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('formModal')">&times;</span>
-            <h2 style="text-align:center;">Participar</h2>
+            <h2 id="formTitle">Identificação</h2>
+            <p id="formSub">Preencha os dados para continuar:</p>
+            
             <div class="form-group">
-                <label>Nome Completo:</label>
-                <input type="text" id="nome" placeholder="Seu nome">
+                <label>Seu Nome:</label>
+                <input type="text" id="nome" placeholder="Nome completo">
             </div>
             <div class="form-group">
                 <label>WhatsApp:</label>
                 <input type="tel" id="telefone" placeholder="(91) 98888-8888">
             </div>
-            <button class="btn-principal" id="btnSalvar" style="background: var(--verde-medio); color: white;">AVANÇAR PARA PAGAMENTO</button>
+
+            <label id="containerCheckPago" class="check-pago" style="display: none;">
+                <input type="checkbox" id="checkPago">
+                <span>Já realizei o pagamento via Pix</span>
+            </label>
+
+            <button class="btn-principal" id="btnSalvar" style="background: var(--verde-medio); color: white;">AVANÇAR</button>
         </div>
     </div>
 
     <div id="pixModal" class="modal">
-        <div class="modal-content" style="text-align:center;">
+        <div class="modal-content">
             <span class="close" onclick="closeModal('pixModal')">&times;</span>
-            <h2>Pagamento Pix</h2>
-            <img src="image_4b8421.png" style="width:200px;" alt="QR Code">
+            <h2 style="color: var(--verde-escuro); margin-top: 0;">Pagamento e Comprovante</h2>
+            <p style="font-size: 0.9rem;">Se ainda não pagou, use o QR Code:</p>
+            
+            <img src="image_4b8421.png" style="width:180px;" alt="QR Code">
+            
             <div class="pix-box" id="pixKey">00020126860014br.gov.bcb.pix0136eea7c3c5-a895-4bc7-85dc-26ff693db7100224Cofrinho de Edivan Silva5204000053039865802BR5912Edivan Silva6010Ananindeua61086712040562270523COFRNTkxNzEyMDAwMDAwMDM63040327</div>
-            <button onclick="copyPix()" style="background:#333; color:white; border:none; padding:12px; width:100%; border-radius:8px; margin-top:10px; cursor:pointer;">Copiar Código</button>
-            <p style="color: #d35400; font-size:0.85rem; margin-top:15px;"><strong>IMPORTANTE:</strong> Envie o comprovante no Instagram <strong>@el.yonbanda</strong></p>
+            
+            <button onclick="copyPix()" style="background: #333; color: white; border: none; padding: 10px; width: 100%; border-radius: 8px; cursor: pointer; font-weight: bold;">Copiar Código Pix</button>
+            
+            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+            
+            <p style="font-weight: bold; color: var(--verde-escuro);">Para validar sua cartela, envie o comprovante agora:</p>
+            <a href="https://wa.me/5547984800908?text=Olá! Segue o comprovante do sorteio Banda El-Elyon." target="_blank" class="btn-whats">ENVIAR COMPROVANTE (WHATSAPP)</a>
         </div>
     </div>
 
     <div id="regModal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content" style="text-align: left;">
             <span class="close" onclick="closeModal('regModal')">&times;</span>
-            <div class="reg-text">
-                <h2 style="text-align: center;">Regulamento do Sorteio</h2>
-                <p style="text-align: center; font-weight: bold;">Prêmio: Ventilador de Mesa | Realização: Banda El-Elyon</p>
-                
-                <h3>1. Do Objeto e Realização</h3>
-                <p>O presente sorteio é realizado exclusivamente pela Banda El-Elyon (ou "Elyon"), grupo musical da Congregação Torre Forte.</p>
-                <p><strong>Isenção de Responsabilidade:</strong> Este sorteio é de inteira responsabilidade da Banda El-Elyon. A ADCIN e a Congregação Torre Forte não possuem vínculo administrativo, financeiro ou responsabilidade legal sobre a organização, execução ou entrega do prêmio.</p>
-
-                <h3>2. Do Propósito e Destinação dos Recursos</h3>
-                <p>Toda a renda arrecadada com a venda dos bilhetes será destinada exclusivamente à compra e manutenção de equipamentos da banda, incluindo, mas não se limitando a:</p>
-                <ul>
-                    <li>Cabos de áudio e placas de áudio;</li>
-                    <li>Pedaleiras e caixas amplificadoras (Baixo e Guitarra);</li>
-                    <li>Pratos para bateria e banco para o baterista;</li>
-                    <li>Manutenção da mesa de som e compra de pedestal para caixa de som.</li>
-                </ul>
-
-                <h3>3. Do Prêmio</h3>
-                <p>O prêmio consiste em 01 (um) Ventilador de Mesa. A imagem utilizada na divulgação é meramente ilustrativa.</p>
-
-                <h3>4. Método de Sorteio (Urna e Live)</h3>
-                <p>O sorteio será realizado através de uma transmissão ao vivo (Live) no Instagram oficial <strong>@el.yonbanda</strong>. Os nomes serão sorteados através de uma urna física contendo os canhotos dos participantes que confirmaram o pagamento.</p>
-
-                <h3>5. Data e Alterações</h3>
-                <p>O sorteio está previsto para o dia 07 de março de 2026. A data poderá sofrer alterações caso o volume de vendas seja insuficiente ou por motivos de força maior, sendo qualquer mudança comunicada previamente nas redes sociais da banda.</p>
-
-                <hr>
-                <p style="font-style: italic;">"A Banda El-Elyon agradece imensamente a cada um que adquiriu um bilhete. Sua contribuição é fundamental para o fortalecimento do nosso ministério e para que possamos continuar louvando ao Senhor com excelência e dedicação. Que Deus abençoe grandemente a sua vida!"</p>
-
-                <p style="text-align: center; font-size: 0.8rem; margin-top: 30px;">
-                    Ananindeua, PA, 08 de Fevereiro de 2026.<br><br>
-                    <strong>Responsáveis:</strong> Lucas Barbosa Pamplona e Edivan Silva da Costa
-                </p>
+            <h2 style="text-align: center;">Regulamento do Sorteio</h2>
+            <div style="font-size: 0.85rem; line-height: 1.4;">
+                <p><strong>1. Do Objeto:</strong> Realizado pela Banda El-Elyon. ADCIN e Torre Forte são isentas de responsabilidade.</p>
+                <p><strong>2. Propósito:</strong> Verba para equipamentos: Cabos, placas de áudio, pedaleiras, caixas amplificadoras, pratos de bateria e manutenção geral.</p>
+                <p><strong>3. Sorteio:</strong> 07/03/2026 via Live no Instagram @el.yonbanda com urna física.</p>
+                <p><strong>4. Participação:</strong> A cartela só será válida após o envio do comprovante para os organizadores.</p>
+                <p><strong>Responsáveis:</strong> Lucas B. Pamplona e Edivan S. Costa.</p>
             </div>
         </div>
     </div>
@@ -161,29 +152,50 @@
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxlvo3XReB27blSvUSgX19_hMjharOblWFdO8PJ7wk3G5efVQSCEy3ttPnISM-N1zJF/exec';
 
-        function openForm() { document.getElementById('formModal').style.display = 'block'; }
-        function openReg() { document.getElementById('regModal').style.display = 'block'; }
+        function openForm(modo) {
+            document.getElementById('formModal').style.display = 'block';
+            if (modo === 'confirmar') {
+                document.getElementById('formTitle').innerText = "Confirmar Pagamento";
+                document.getElementById('formSub').innerText = "Identifique-se para confirmarmos seu Pix:";
+                document.getElementById('containerCheckPago').style.display = 'flex';
+            } else {
+                document.getElementById('formTitle').innerText = "Participar";
+                document.getElementById('formSub').innerText = "Preencha para gerar sua cartela:";
+                document.getElementById('containerCheckPago').style.display = 'none';
+                document.getElementById('checkPago').checked = false;
+            }
+        }
+
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+        function openReg() { document.getElementById('regModal').style.display = 'block'; }
 
         document.getElementById('btnSalvar').addEventListener('click', function() {
             const nome = document.getElementById('nome').value;
             const telefone = document.getElementById('telefone').value;
+            const pago = document.getElementById('checkPago').checked ? "SIM" : "NÃO";
+
             if (!nome || !telefone) { alert("Preencha os dados!"); return; }
 
-            this.innerText = "Salvando...";
+            this.innerText = "Processando...";
             this.disabled = true;
 
-            fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: JSON.stringify({ nome: nome, telefone: telefone }) })
+            fetch(scriptURL, { 
+                method: 'POST', 
+                mode: 'no-cors', 
+                body: JSON.stringify({ nome: nome, telefone: telefone, pago: pago }) 
+            })
             .then(() => {
                 closeModal('formModal');
                 document.getElementById('pixModal').style.display = 'block';
+                this.innerText = "AVANÇAR";
+                this.disabled = false;
             })
-            .catch(() => { alert("Erro ao salvar."); this.disabled = false; this.innerText = "AVANÇAR PARA PAGAMENTO"; });
+            .catch(() => { alert("Erro de conexão."); this.disabled = false; });
         });
 
         function copyPix() {
             const pixText = document.getElementById("pixKey").innerText;
-            navigator.clipboard.writeText(pixText).then(() => alert("Copiado!"));
+            navigator.clipboard.writeText(pixText).then(() => alert("Código Copiado!"));
         }
 
         window.onclick = function(event) { if (event.target.className === 'modal') { event.target.style.display = "none"; } }
