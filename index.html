@@ -31,27 +31,20 @@
         .info-card { background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; margin: 15px 0; border: 1px solid rgba(255, 255, 255, 0.1); text-align: center; }
         .price { font-size: 2.5rem; font-weight: 800; color: var(--ouro); margin: 5px 0; }
         
-        .btn-principal { display: block; background: var(--ouro); color: #333; padding: 15px; border-radius: 50px; font-weight: 900; text-align: center; font-size: 1.1rem; cursor: pointer; width: 100%; border: none; transition: 0.3s; margin-bottom: 10px; }
+        .btn-principal { display: block; background: var(--ouro); color: #333; padding: 15px; border-radius: 50px; font-weight: 900; text-align: center; font-size: 1.1rem; cursor: pointer; width: 100%; border: none; transition: 0.3s; margin-bottom: 10px; text-decoration: none; }
         .btn-principal:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
         .btn-secundario { background: transparent; border: 2px solid var(--ouro); color: var(--ouro); }
 
-        .insta-info { margin-top: 15px; font-size: 0.8rem; line-height: 1.4; opacity: 0.9; text-align: center; }
-
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); }
-        .modal-content { 
-            background: #fff; color: #333; margin: 5% auto; padding: 25px; width: 85%; max-width: 500px; 
-            border-radius: 15px; position: relative; max-height: 85vh; overflow-y: auto; text-align: center;
-        }
+        .modal-content { background: #fff; color: #333; margin: 5% auto; padding: 25px; width: 85%; max-width: 500px; border-radius: 15px; position: relative; text-align: center; }
         .close { position: absolute; right: 20px; top: 15px; font-size: 24px; cursor: pointer; color: #999; }
         
         .form-group { margin-bottom: 15px; text-align: left; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9rem; }
-        .form-group input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 1rem; box-sizing: border-box; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; box-sizing: border-box; }
         
         .check-pago { display: flex; align-items: center; gap: 10px; background: #f0fdf4; padding: 10px; border-radius: 8px; margin-bottom: 20px; cursor: pointer; border: 1px solid #dcfce7; }
-        .check-pago input { width: 20px; height: 20px; cursor: pointer; }
-
-        .btn-whats { background: var(--whats); color: white; text-decoration: none; padding: 12px; border-radius: 8px; display: block; font-weight: bold; margin-top: 15px; }
+        .btn-whats { background: var(--whats); color: white; padding: 12px; border-radius: 8px; display: block; font-weight: bold; margin-top: 15px; text-decoration: none; }
         .pix-box { background: #f8f9fa; padding: 10px; border-radius: 10px; border: 1px dashed var(--verde-medio); word-break: break-all; font-family: monospace; font-size: 0.8rem; margin: 10px 0; }
 
         @media (max-width: 768px) { .container { flex-direction: column; text-align: center; } }
@@ -70,25 +63,14 @@
 
         <div class="right-side">
             <h1 translate="no">SORTEIO</h1>
-            <p style="margin: 5px 0;">Banda El-Elyon</p>
-
+            <p>Banda El-Elyon</p>
             <div class="info-card">
-                <div style="font-size: 1rem;">Prêmio: <strong style="color: var(--ouro);">01 Ventilador de Mesa</strong></div>
+                <div>Prêmio: <strong style="color: var(--ouro);">01 Ventilador de Mesa</strong></div>
                 <div class="price">R$ 5,00</div>
                 <small>Sorteio: 07/03/2026</small>
             </div>
-
             <button class="btn-principal" onclick="openForm('comprar')">COMPRAR CARTELA</button>
             <button class="btn-principal btn-secundario" onclick="openForm('confirmar')">JÁ COMPREI - CONFIRMAR PAGAMENTO</button>
-            
-            <div class="insta-info">
-                Siga <a href="https://www.instagram.com/el.yonbanda" target="_blank" style="color:var(--ouro)">@el.yonbanda</a> para acompanhar!<br>
-                Sem Instagram? <a href="https://www.instagram.com/el.yonbanda/live/" target="_blank" style="color:var(--ouro)">Assista aqui</a>.
-            </div>
-
-            <div style="text-align: center; margin-top: 15px;">
-                <span style="text-decoration: underline; cursor: pointer; font-size: 0.8rem; opacity: 0.7;" onclick="openReg()">Regulamento Integral</span>
-            </div>
         </div>
     </div>
 
@@ -96,8 +78,6 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal('formModal')">&times;</span>
             <h2 id="formTitle">Identificação</h2>
-            <p id="formSub">Preencha os dados para continuar:</p>
-            
             <div class="form-group">
                 <label>Seu Nome:</label>
                 <input type="text" id="nome" placeholder="Nome completo">
@@ -106,12 +86,9 @@
                 <label>WhatsApp:</label>
                 <input type="tel" id="telefone" placeholder="(91) 98888-8888">
             </div>
-
             <label id="containerCheckPago" class="check-pago" style="display: none;">
-                <input type="checkbox" id="checkPago">
-                <span>Já realizei o pagamento via Pix</span>
+                <input type="checkbox" id="checkPago"> <span>Já realizei o pagamento via Pix</span>
             </label>
-
             <button class="btn-principal" id="btnSalvar" style="background: var(--verde-medio); color: white;">AVANÇAR</button>
         </div>
     </div>
@@ -119,33 +96,13 @@
     <div id="pixModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('pixModal')">&times;</span>
-            <h2 style="color: var(--verde-escuro); margin-top: 0;">Pagamento e Comprovante</h2>
-            <p style="font-size: 0.9rem;">Se ainda não pagou, use o QR Code:</p>
-            
-            <img src="image_4b8421.png" style="width:180px;" alt="QR Code">
-            
+            <h3>Pagamento e Comprovante</h3>
+            <img src="image_4b8421.png" style="width:180px;">
             <div class="pix-box" id="pixKey">00020126860014br.gov.bcb.pix0136eea7c3c5-a895-4bc7-85dc-26ff693db7100224Cofrinho de Edivan Silva5204000053039865802BR5912Edivan Silva6010Ananindeua61086712040562270523COFRNTkxNzEyMDAwMDAwMDM63040327</div>
+            <button onclick="copyPix()" style="background: #333; color: white; border: none; padding: 10px; width: 100%; border-radius: 8px; cursor: pointer;">Copiar Código Pix</button>
             
-            <button onclick="copyPix()" style="background: #333; color: white; border: none; padding: 10px; width: 100%; border-radius: 8px; cursor: pointer; font-weight: bold;">Copiar Código Pix</button>
-            
-            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
-            
-            <p style="font-weight: bold; color: var(--verde-escuro);">Para validar sua cartela, envie o comprovante agora:</p>
-            <a href="https://wa.me/5547984800908?text=Olá! Segue o comprovante do sorteio Banda El-Elyon." target="_blank" class="btn-whats">ENVIAR COMPROVANTE (WHATSAPP)</a>
-        </div>
-    </div>
-
-    <div id="regModal" class="modal">
-        <div class="modal-content" style="text-align: left;">
-            <span class="close" onclick="closeModal('regModal')">&times;</span>
-            <h2 style="text-align: center;">Regulamento do Sorteio</h2>
-            <div style="font-size: 0.85rem; line-height: 1.4;">
-                <p><strong>1. Do Objeto:</strong> Realizado pela Banda El-Elyon. ADCIN e Torre Forte são isentas de responsabilidade.</p>
-                <p><strong>2. Propósito:</strong> Verba para equipamentos: Cabos, placas de áudio, pedaleiras, caixas amplificadoras, pratos de bateria e manutenção geral.</p>
-                <p><strong>3. Sorteio:</strong> 07/03/2026 via Live no Instagram @el.yonbanda com urna física.</p>
-                <p><strong>4. Participação:</strong> A cartela só será válida após o envio do comprovante para os organizadores.</p>
-                <p><strong>Responsáveis:</strong> Lucas B. Pamplona e Edivan S. Costa.</p>
-            </div>
+            <p style="margin-top:20px; font-weight:bold;">Clique abaixo para enviar o comprovante:</p>
+            <a id="btnWhatsDinamico" href="#" target="_blank" class="btn-whats">ENVIAR COMPROVANTE (WHATSAPP)</a>
         </div>
     </div>
 
@@ -154,20 +111,10 @@
 
         function openForm(modo) {
             document.getElementById('formModal').style.display = 'block';
-            if (modo === 'confirmar') {
-                document.getElementById('formTitle').innerText = "Confirmar Pagamento";
-                document.getElementById('formSub').innerText = "Identifique-se para confirmarmos seu Pix:";
-                document.getElementById('containerCheckPago').style.display = 'flex';
-            } else {
-                document.getElementById('formTitle').innerText = "Participar";
-                document.getElementById('formSub').innerText = "Preencha para gerar sua cartela:";
-                document.getElementById('containerCheckPago').style.display = 'none';
-                document.getElementById('checkPago').checked = false;
-            }
+            document.getElementById('containerCheckPago').style.display = (modo === 'confirmar') ? 'flex' : 'none';
         }
 
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
-        function openReg() { document.getElementById('regModal').style.display = 'block'; }
 
         document.getElementById('btnSalvar').addEventListener('click', function() {
             const nome = document.getElementById('nome').value;
@@ -179,26 +126,25 @@
             this.innerText = "Processando...";
             this.disabled = true;
 
-            fetch(scriptURL, { 
-                method: 'POST', 
-                mode: 'no-cors', 
-                body: JSON.stringify({ nome: nome, telefone: telefone, pago: pago }) 
-            })
+            // Envia para planilha
+            fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: JSON.stringify({ nome: nome, telefone: telefone, pago: pago }) })
             .then(() => {
+                // GERA O LINK DO WHATSAPP COM O NOME
+                const texto = encodeURIComponent(`Oi, eu sou ${nome} e comprei uma cartela do sorteio, segue o comprovante.`);
+                const linkWhats = `https://wa.me/5547984800908?text=${texto}`;
+                document.getElementById('btnWhatsDinamico').href = linkWhats;
+
                 closeModal('formModal');
                 document.getElementById('pixModal').style.display = 'block';
                 this.innerText = "AVANÇAR";
                 this.disabled = false;
-            })
-            .catch(() => { alert("Erro de conexão."); this.disabled = false; });
+            });
         });
 
         function copyPix() {
             const pixText = document.getElementById("pixKey").innerText;
-            navigator.clipboard.writeText(pixText).then(() => alert("Código Copiado!"));
+            navigator.clipboard.writeText(pixText).then(() => alert("Copiado!"));
         }
-
-        window.onclick = function(event) { if (event.target.className === 'modal') { event.target.style.display = "none"; } }
     </script>
 </body>
 </html>
