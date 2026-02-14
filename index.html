@@ -18,7 +18,7 @@
         }
         .container {
             background: rgba(0, 0, 0, 0.25); backdrop-filter: blur(12px); padding: 35px; border-radius: 25px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4); max-width: 950px; width: 92%;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4); max-width: 900px; width: 92%;
             border: 1px solid rgba(255, 255, 255, 0.2); display: flex; flex-direction: row; align-items: center; gap: 40px;
         }
         .logo-container { position: relative; width: 140px; height: 140px; margin: 0 auto 15px; border-radius: 50%; overflow: hidden; border: 3px solid rgba(255, 255, 255, 0.4); background: white; }
@@ -26,20 +26,26 @@
         .left-side { flex: 1; text-align: center; }
         .right-side { flex: 1.2; }
         h1 { font-size: 2.8rem; margin: 0; text-transform: uppercase; letter-spacing: 3px; }
-        .prize-img { width: 100%; max-width: 280px; border-radius: 15px; background: white; padding: 10px; }
-        .info-card { background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; margin: 15px 0; border: 1px solid rgba(255, 255, 255, 0.1); }
-        .price { font-size: 2.8rem; font-weight: 800; color: var(--ouro); }
-        .form-group { margin-bottom: 15px; text-align: left; }
-        .form-group label { display: block; margin-bottom: 5px; font-size: 0.9rem; }
-        .form-group input { width: 100%; padding: 12px; border-radius: 10px; border: none; font-size: 1rem; color: #333; }
-        .btn-comprar { display: block; background: var(--ouro); color: #333; padding: 18px; border-radius: 50px; font-weight: 900; text-align: center; font-size: 1.2rem; cursor: pointer; width: 100%; border: none; transition: 0.3s; }
-        .btn-comprar:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-        .live-box { margin-top: 15px; background: rgba(255,255,255,0.1); padding: 12px; border-radius: 12px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1); }
+        .prize-img { width: 100%; max-width: 280px; border-radius: 15px; background: white; padding: 10px; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3)); }
+        
+        .info-card { background: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 15px; margin: 20px 0; border: 1px solid rgba(255, 255, 255, 0.1); text-align: center; }
+        .price { font-size: 3rem; font-weight: 800; color: var(--ouro); margin: 10px 0; }
+        
+        .btn-principal { display: block; background: var(--ouro); color: #333; padding: 18px; border-radius: 50px; font-weight: 900; text-align: center; font-size: 1.2rem; cursor: pointer; width: 100%; border: none; transition: 0.3s; }
+        .btn-principal:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #333; }
+        .form-group input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 1rem; box-sizing: border-box; }
+
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); overflow-y: auto; }
-        .modal-content { background: #fff; color: #333; margin: 5% auto; padding: 30px; width: 85%; max-width: 600px; border-radius: 15px; position: relative; }
-        .qr-img { width: 220px; margin: 20px 0; }
-        .pix-box { background: #f8f9fa; padding: 15px; border-radius: 10px; border: 1px dashed var(--verde-medio); word-break: break-all; font-size: 0.8rem; }
-        @media (max-width: 768px) { .container { flex-direction: column; text-align: center; } }
+        .modal-content { background: #fff; color: #333; margin: 5% auto; padding: 30px; width: 85%; max-width: 500px; border-radius: 15px; position: relative; text-align: center; }
+        .close { position: absolute; right: 20px; top: 15px; font-size: 24px; cursor: pointer; color: #999; }
+        
+        .pix-box { background: #f8f9fa; padding: 15px; border-radius: 10px; border: 1px dashed var(--verde-medio); word-break: break-all; font-size: 0.8rem; margin: 15px 0; }
+        .qr-img { width: 220px; margin-bottom: 10px; }
+
+        @media (max-width: 768px) { .container { flex-direction: column; text-align: center; padding: 25px; } }
     </style>
 </head>
 <body>
@@ -51,113 +57,119 @@
                 <iframe src="https://www.canva.com/design/DAHBUAbuA_U/ZlNMz2yGhtmmH7_TxS2sow/view?embed" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"></iframe>
             </div>
             <img src="https://pradosom.fbitsstatic.net/img/p/ventilador-de-mesa-vtx50-8p-127v-150w-2026-01-mondial-150871/337876.jpg?w=420&h=420&v=202602071042" class="prize-img">
-            <small style="display:block; margin-top:5px; opacity:0.7;">*Imagem meramente ilustrativa</small>
+            <small style="display:block; margin-top:10px; opacity:0.7;">*Imagem meramente ilustrativa</small>
         </div>
 
         <div class="right-side">
             <h1 translate="no">SORTEIO</h1>
-            <span style="font-size: 1.2rem; opacity: 0.9;">Banda El-Elyon</span>
+            <p style="font-size: 1.4rem; margin-top: 5px; opacity: 0.9;">Banda El-Elyon</p>
 
             <div class="info-card">
-                <div class="form-group">
-                    <label>Seu Nome Completo:</label>
-                    <input type="text" id="nome" placeholder="Digite seu nome">
-                </div>
-                <div class="form-group">
-                    <label>Seu Telefone/WhatsApp:</label>
-                    <input type="tel" id="telefone" placeholder="(91) 9XXXX-XXXX">
-                </div>
+                <div style="font-size: 1.1rem;">📅 Data: <strong>07/03/2026</strong></div>
+                <div style="margin: 10px 0;">Prêmio: <strong>01 Ventilador de Mesa</strong></div>
                 <div class="price">R$ 5,00</div>
             </div>
 
-            <button class="btn-comprar" id="btnAvancar">AVANÇAR PARA PAGAMENTO</button>
+            <button class="btn-principal" onclick="openForm()">COMPRAR CARTELA</button>
             
-            <div class="live-box">
-                <strong>🔴 Acompanhe a Live:</strong><br>
-                Não tem Instagram? <a href="https://www.instagram.com/el.yonbanda/live/" target="_blank" style="color: var(--ouro); text-decoration: underline;">Assista aqui pelo navegador</a>
+            <div style="text-align: center; margin-top: 20px;">
+                <span style="text-decoration: underline; cursor: pointer; font-size: 0.85rem; opacity: 0.8;" onclick="openReg()">Regulamento Completo</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="formModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('formModal')">&times;</span>
+            <h2 style="color: var(--verde-escuro);">Quase lá!</h2>
+            <p>Preencha para identificarmos seu número:</p>
+            
+            <div class="form-group">
+                <label>Seu Nome Completo:</label>
+                <input type="text" id="nome" placeholder="Ex: João da Silva">
+            </div>
+            <div class="form-group">
+                <label>WhatsApp:</label>
+                <input type="tel" id="telefone" placeholder="(91) 9XXXX-XXXX">
             </div>
 
-            <div style="text-align: center; margin-top: 15px;">
-                <span style="text-decoration: underline; cursor: pointer; font-size: 0.8rem; color: rgba(255,255,255,0.7);" onclick="document.getElementById('regModal').style.display='block'">Regulamento Completo</span>
-            </div>
+            <button class="btn-principal" id="btnSalvar" style="background: var(--verde-medio); color: white;">AVANÇAR PARA O PIX</button>
         </div>
     </div>
 
     <div id="pixModal" class="modal">
-        <div class="modal-content" style="text-align:center;">
-            <span onclick="document.getElementById('pixModal').style.display='none'" style="position:absolute; right:20px; top:10px; cursor:pointer; font-size:24px; font-weight:bold;">&times;</span>
-            <h2 style="color: var(--verde-escuro); margin-top:0;">Quase pronto!</h2>
-            <p>Seus dados foram salvos. Realize o Pix para confirmar:</p>
-            <img src="image_4b8421.png" class="qr-img">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('pixModal')">&times;</span>
+            <h2 style="color: var(--verde-escuro); margin-bottom: 5px;">Dados para Pagamento</h2>
+            <p style="font-size: 0.9rem;">Escaneie ou copie o código abaixo:</p>
+            
+            <img src="image_4b8421.png" class="qr-img" alt="QR Code Pix">
+            
             <div class="pix-box" id="pixKey">00020126860014br.gov.bcb.pix0136eea7c3c5-a895-4bc7-85dc-26ff693db7100224Cofrinho de Edivan Silva5204000053039865802BR5912Edivan Silva6010Ananindeua61086712040562270523COFRNTkxNzEyMDAwMDAwMDM63040327</div>
-            <button onclick="copyPix()" style="background: var(--verde-medio); color: white; border: none; padding: 15px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; margin-top:15px; font-size:1.1rem;">Copiar Código Pix</button>
-            <p style="font-size: 0.85rem; color: #d35400; margin-top: 15px; line-height:1.4;"><strong>IMPORTANTE:</strong><br>Após o pagamento, envie o comprovante no Direct do Instagram <strong>@el.yonbanda</strong> para receber seu número.</p>
+            
+            <button onclick="copyPix()" style="background: #333; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold;">Copiar Código Pix</button>
+            
+            <p style="font-size: 0.85rem; color: #d35400; margin-top: 15px; line-height: 1.4;">
+                <strong>IMPORTANTE:</strong> Envie o comprovante no Direct do Instagram <strong>@el.yonbanda</strong> para receber seu número da sorte!
+            </p>
         </div>
     </div>
 
     <div id="regModal" class="modal">
-        <div class="modal-content" style="text-align: left;">
-            <span onclick="document.getElementById('regModal').style.display='none'" style="position:absolute; right:20px; top:10px; cursor:pointer; font-size:24px; font-weight:bold;">&times;</span>
-            <h2 style="text-align: center; color: var(--verde-escuro);">Regulamento</h2>
-            <div style="font-size: 0.9rem; line-height: 1.5; color: #444;">
-                <p><strong>1. Realização:</strong> Banda El-Elyon (Congregação Torre Forte). A ADCIN e Torre Forte não possuem responsabilidade legal ou financeira.</p>
-                <p><strong>2. Propósito:</strong> Renda para compra/manutenção de equipamentos (cabos, placas, pedaleiras, pratos de bateria, mesa de som, etc).</p>
-                <p><strong>3. Prêmio:</strong> 01 Ventilador de Mesa (imagem ilustrativa).</p>
-                <p><strong>4. Sorteio:</strong> 07/03/2026 via Live no Instagram com urna física contendo os canhotos.</p>
-                <p><strong>5. Alterações:</strong> A data pode mudar conforme o volume de vendas, com aviso prévio no Instagram.</p>
-                <p><strong>Responsáveis:</strong> Lucas B. Pamplona e Edivan S. Costa.</p>
+        <div class="modal-content" style="text-align: left; max-width: 600px;">
+            <span class="close" onclick="closeModal('regModal')">&times;</span>
+            <h2 style="text-align: center;">Regulamento</h2>
+            <div style="font-size: 0.9rem; line-height: 1.5;">
+                <p><strong>1. Realização:</strong> Banda El-Elyon. ADCIN e Torre Forte são isentas de responsabilidade.</p>
+                <p><strong>2. Propósito:</strong> Verba para manutenção de equipamentos da banda.</p>
+                <p><strong>3. Sorteio:</strong> 07/03/2026 via Live no Instagram.</p>
+                <p><strong>4. Participação:</strong> A confirmação ocorre apenas após o envio do comprovante.</p>
             </div>
-            <button onclick="document.getElementById('regModal').style.display='none'" style="width:100%; padding:12px; background:#333; color:#fff; border:none; border-radius:8px; cursor:pointer; margin-top:15px;">Fechar</button>
         </div>
     </div>
 
     <script>
-        // Link do seu App da Web do Google Apps Script
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxlvo3XReB27blSvUSgX19_hMjharOblWFdO8PJ7wk3G5efVQSCEy3ttPnISM-N1zJF/exec';
 
-        document.getElementById('btnAvancar').addEventListener('click', function() {
+        function openForm() { document.getElementById('formModal').style.display = 'block'; }
+        function openReg() { document.getElementById('regModal').style.display = 'block'; }
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+
+        document.getElementById('btnSalvar').addEventListener('click', function() {
             const nome = document.getElementById('nome').value;
             const telefone = document.getElementById('telefone').value;
 
             if (!nome || !telefone) {
-                alert("Por favor, preencha seu nome e telefone primeiro!");
+                alert("Preencha todos os campos!");
                 return;
             }
 
-            this.innerText = "Salvando dados...";
+            this.innerText = "Salvando...";
             this.disabled = true;
 
-            // Envia para o Google Sheets
             fetch(scriptURL, {
                 method: 'POST',
-                mode: 'no-cors', // Importante para evitar erros de CORS no navegador
+                mode: 'no-cors',
                 body: JSON.stringify({ nome: nome, telefone: telefone })
             })
             .then(() => {
-                // Abre o Pix se o envio for concluído
+                closeModal('formModal');
                 document.getElementById('pixModal').style.display = 'block';
-                this.innerText = "AVANÇAR PARA PAGAMENTO";
-                this.disabled = false;
             })
-            .catch((error) => {
-                console.error('Erro!', error.message);
-                alert("Ocorreu um problema. Tente novamente ou entre em contato via Instagram.");
+            .catch(() => {
+                alert("Erro ao salvar. Verifique sua internet.");
                 this.disabled = false;
+                this.innerText = "AVANÇAR PARA O PIX";
             });
         });
 
         function copyPix() {
             const pixText = document.getElementById("pixKey").innerText;
-            navigator.clipboard.writeText(pixText).then(() => {
-                alert("Código Pix copiado! Agora basta colar no seu aplicativo do banco.");
-            });
+            navigator.clipboard.writeText(pixText).then(() => alert("Código Pix copiado!"));
         }
 
-        // Fechar modal clicando fora dele
         window.onclick = function(event) {
-            if (event.target.className === 'modal') {
-                event.target.style.display = "none";
-            }
+            if (event.target.className === 'modal') { event.target.style.display = "none"; }
         }
     </script>
 </body>
